@@ -13,12 +13,12 @@ angular.module('uadpApp')
       $http
         .get(cfg.apiUrl + '/login?username=' + encodeURIComponent($scope.user.username) + '&password=' + encodeURIComponent($scope.user.password))
         .success(function (data, status, headers, config) {
-          $window.sessionStorage.token = data.sessionToken;
+          $window.localStorage.token = data.sessionToken;
           $state.go('submit');
         })
         .error(function (data, status, headers, config) {
           // Erase the token if the user fails to log in
-          delete $window.sessionStorage.token;
+          delete $window.localStorage.token;
 
           // Handle login errors here
           $scope.message = 'Error: Invalid user or password';

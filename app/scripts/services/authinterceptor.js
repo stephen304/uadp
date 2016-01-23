@@ -12,8 +12,8 @@ angular.module('uadpApp')
     return {
       request: function (config) {
         config.headers = config.headers || {};
-        if ($window.sessionStorage.token) {
-          config.headers["X-Parse-Session-Token"] = $window.sessionStorage.token;
+        if ($window.localStorage.token) {
+          config.headers["X-Parse-Session-Token"] = $window.localStorage.token;
         }
         return config;
       },
