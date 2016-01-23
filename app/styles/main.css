@@ -18,7 +18,7 @@ body {
   border-top: 1px solid #e5e5e5;
 }
 
-/* Responsive: Portrait tablets and up */
+/* Responsive footer */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
   .footer {

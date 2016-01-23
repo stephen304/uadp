@@ -23,10 +23,15 @@ angular
      $stateProvider
       .state('login', {
         url: "/login",
-        templateUrl: "views/login.html"
+        templateUrl: "views/login.html",
+        controller: "LoginCtrl"
       })
       .state('submit', {
         url: "/submit",
-        templateUrl: "views/submit.html"
+        templateUrl: "views/submit.html",
+        controller: "SubmitCtrl"
       });
+  })
+  .constant('config', {
+    apiUrl: 'http://www.google.com?api'
   });
