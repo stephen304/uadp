@@ -8,15 +8,13 @@
  * Controller of the uadpApp
  */
 angular.module('uadpApp')
-  .controller('LoginCtrl', ['config', function ($scope, $http, $window) {
+  .controller('LoginCtrl', function (cfg, $scope, $http, $window, $state) {
     $scope.submit = function () {
-      console.log(config);
-      return;
       $http
-        .post('/authenticate', $scope.user)
+        .get(cfg.apiUrl + '/login?username=' + encodeURIComponent($scope.user.username) + '&password=' + encodeURIComponent($scope.user.password))
         .success(function (data, status, headers, config) {
-          $window.sessionStorage.token = data.token;
-          $scope.message = 'Welcome';
+          $window.sessionStorage.token = data.sessionToken;
+          $state.go('submit');
         })
         .error(function (data, status, headers, config) {
           // Erase the token if the user fails to log in
@@ -32,4 +30,4 @@ angular.module('uadpApp')
       'AngularJS',
       'Karma'
     ];
-  }]);
+  });
