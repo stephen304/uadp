@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name uadpApp.controller:DataentryCtrl
+ * @name uadpApp.controller:SubmitCtrl
  * @description
- * # DataentryCtrl
+ * # SubmitCtrl
  * Controller of the uadpApp
  */
 angular.module('uadpApp')
-  .controller('DataentryCtrl', function () {
+  .controller('SubmitCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

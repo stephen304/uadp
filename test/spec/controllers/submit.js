@@ -1,23 +1,23 @@
 'use strict';
 
-describe('Controller: DataentryCtrl', function () {
+describe('Controller: SubmitCtrl', function () {
 
   // load the controller's module
   beforeEach(module('uadpApp'));
 
-  var DataentryCtrl,
+  var SubmitCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    DataentryCtrl = $controller('DataentryCtrl', {
+    SubmitCtrl = $controller('SubmitCtrl', {
       $scope: scope
       // place here mocked dependencies
     });
   }));
 
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(DataentryCtrl.awesomeThings.length).toBe(3);
+    expect(SubmitCtrl.awesomeThings.length).toBe(3);
   });
 });
