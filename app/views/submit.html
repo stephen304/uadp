@@ -1,1 +1,115 @@
-<p>This is the submit view.</p>
+<form>
+	<div class="form-group">
+		<label for="date-input">Date</label>
+		<input type="date" class="form-control" id="date-input">
+	</div>
+
+	<div class="form-group">
+		<label for="venue">Venue Policed</label>
+		<select class="form-control" id="venue">
+			<option>Street Reversal</option>
+			<option>Hotel Operation</option>
+			<option>Brothel</option>
+			<option>Strip/Dance Club</option>
+			<option>Bar</option>
+			<option>Other</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label for="age">Age group of offender</label>
+		<select class="form-control" id="venue">
+			<option>Under 18</option>
+			<option>18 to 30</option>
+			<option>31 to 40</option>
+			<option>41 to 50</option>
+			<option>51 to 60</option>
+			<option>Over 60</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label for="race">Race of offender</label>
+		<select class="form-control" id="race">
+			<option>Caucasian</option>
+			<option>Hispanic</option>
+			<option>African American</option>
+			<option>Asian</option>
+			<option>Other</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label for="record">Criminal record (other than solication)</label>
+		<select class="form-control" id="record">
+			<option>Yes</option>
+			<option>No</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label for="repeat">Repeat offender (solicitation)</label>
+		<select class="form-control" id="record">
+			<option>Yes</option>
+			<option>No</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label for="weapon">In possesion of a weapon</label>
+		<select class="form-control" id="weapon">
+			<option>Yes</option>
+			<option>No</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label for="married">Marital Status</label>
+		<select class="form-control" id="married">
+			<option>Married</option>
+			<option>In a relationship</option>
+			<option>Divorced</option>
+			<option>Separated</option>
+			<option>Single</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label for="education">Highest Level of Education</label>
+		<select class="form-control" id="education">
+			<option>No HS Diploma or GED</option>
+			<option>HS diploma or GED</option>
+			<option>College degree</option>
+			<option>Graduate School</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label for="vehicle">Vehicle Towed/Impounded</label>
+		<select class="form-control" id="vehicle">
+			<option>Yes</option>
+			<option>No</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label for="fines">Fines (not incurred necessarily, but that apply to charges) Total $</label>
+		<input type="number" id="fines" min="0" step=".01">
+	</div>
+
+	<div class="form-group">
+		<label for="charges">#Charges</label>
+		<input type="text" id="charges">
+	</div>
+
+	<div class="form-group">
+		<label for="felony">Felony</label>
+		<input type="text" id="felony">
+	</div>
+
+	<div class="form-group">
+		<label for="misdemeanor">Misdemeanor</label>
+		<input type="text" id="misdemeanor">
+	</div>
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>
