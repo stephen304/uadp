@@ -1,4 +1,10 @@
-<form class="form-submit">
+<form class="form-submit" name="myForm" ng-submit="submit()">
+
+	<div class="form-group">
+		<label for="form.date">Date</label>
+		<input name="date" ng-model="form.date" disabled="disabled">
+	</div>
+	
 	<div class="form-group">
 		<label for="venue">Venue Policed</label>
 		<select class="form-control" id="venue">
