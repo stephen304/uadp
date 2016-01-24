@@ -15,9 +15,6 @@ angular.module('uadpApp')
       'Karma'
     ];
 
-    //set form date to current date, and set forms user, location, 
-    /*var mydate = new Date();
-    $scope.form["123"] = "1234";*/
     $scope.form = {};
 
     //define select options for age group
