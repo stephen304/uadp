@@ -26,11 +26,9 @@ angular.module('uadpApp')
           $state.go('submit');
         })
         .error(function (data, status, headers, config) {
-          // Erase the token if the user fails to log in
-          delete $window.localStorage.token;
 
           // Handle login errors here
-          $scope.message = 'Error: Invalid user or password';
+          $scope.message = 'Error: Invalid submission';
         });
     };
 
