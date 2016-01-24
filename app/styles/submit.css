@@ -5,6 +5,10 @@
 	margin-bottom: 20px;
 }
 
+img {
+	margin: 0 auto;
+	display: block;
+}
 .form-submit {
 	padding: 10px;
 }

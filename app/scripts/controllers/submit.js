@@ -15,14 +15,23 @@ angular.module('uadpApp')
       'Karma'
     ];
 
-    if($window.localStorage.jurisdiction === "US_IL_CookCounty") {
-      console.log("hi");
-    };
+    var jurisdiction = $window.localStorage.jurisdiction;
+    $scope.jurisdiction = jurisdiction;
+    if(jurisdiction === "US_IL_CookCounty") {
+      $('.logo').attr("src", "http://files.parsetfss.com/255b19d5-d7e9-4f57-be01-2cb1cf9cd6eb/tfss-94786dae-c99e-4b77-82a4-bedae5cc09dd-200px-Seal_of_Cook_County_Illinois.png");
+    }
+    else if(jurisdiction === "US_CA_Oakland") {
+      $('.logo').attr("src", "http://files.parsetfss.com/255b19d5-d7e9-4f57-be01-2cb1cf9cd6eb/tfss-eb94982b-9b8f-401a-b585-ac4c0b5faaa5-Seal_of_Oakland_California.png");
+    }
+    else {
+      $("select[name='age']").parent('div').parent('div').hide();
+      $("select[name='age']").parent('div').parent('div').hide();
+    }
 
     $scope.alert = alertService;
     $scope.form = {};
 
-    //define select options for age group
+    //define select options for different options
     $scope.ageOptions = [
       {value: "Under 18", name: 'Under 18'},
       {value: "18 to 30", name: "18 to 30"},
@@ -92,15 +101,15 @@ angular.module('uadpApp')
       {value: "Tinder", name: "Tinder"}
     ];
 
-    $scope.uploadFile = function(files) {
+    /*$scope.uploadFile = function(files) {
       $scope.form['offenderFacePhoto'] = {"__type": files[0], "name": files[0]["name"]};
-    };
+    };*/
 
     $scope.submit = function() {
         $scope.form["locationID"] = "41.7,87.7";
-        // $scope.form["offenderFacePhoto"] = "";
+        /*$scope.form["offenderFacePhoto"] = "";
         $scope.form["offenderIDPhoto"] = "";
-        $scope.form["offenderVehiclePhoto"] = "";
+        $scope.form["offenderVehiclePhoto"] = "";*/
     	console.log($scope.form);
     	$http
         .post(cfg.apiUrl + "/classes/" + $window.localStorage.jurisdiction, $scope.form)
