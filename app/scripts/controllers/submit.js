@@ -8,13 +8,14 @@
  * Controller of the uadpApp
  */
 angular.module('uadpApp')
-  .controller('SubmitCtrl', function (cfg, $scope, $http, $window, $state) {
+  .controller('SubmitCtrl', function (cfg, $scope, $http, $window, $state, alertService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
 
+    $scope.alert = alertService;
     $scope.form = {};
 
     //define select options for age group
@@ -65,13 +66,17 @@ angular.module('uadpApp')
     	$http
         .post(cfg.apiUrl + "/classes/" + $window.localStorage.jurisdiction, $scope.form)
         .success(function (data, status, headers, config) {
-          $window.localStorage.token = data.sessionToken;
+          $scope.alert.message = {class: 'success', text: 'Data successfully submitted'};
           $state.go('submit');
         })
         .error(function (data, status, headers, config) {
-
-          // Handle login errors here
-          $scope.message = 'Error: Invalid submission';
+          if (status === -1) {
+            // Timed out
+          } else {
+            console.log(status);
+            // Bad data
+            $scope.alert.message = {class: 'danger', text: 'Error: Invalid submission'};
+          }
         });
     };
 

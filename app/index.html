@@ -77,6 +77,12 @@
     </div>
 
     <div class="container">
+      <div ng-show="alert.message" ng-cloak class="alert alert-{{alert.message.class}}" role="alert">
+        <button type="button" class="close" aria-label="Close" ng-click="alert.dismiss()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{alert.message.text}}
+      </div>
       <div ui-view></div>
     </div>
 
@@ -108,6 +114,7 @@
         <script src="scripts/services/authinterceptor.js"></script>
         <script src="scripts/services/authservice.js"></script>
         <script src="scripts/controllers/sync.js"></script>
+        <script src="scripts/services/alertservice.js"></script>
         <!-- endbuild -->
 </body>
 </html>
