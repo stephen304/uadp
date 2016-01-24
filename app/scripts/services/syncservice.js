@@ -8,7 +8,7 @@
  * Service in the uadpApp.
  */
 angular.module('uadpApp')
-  .service('syncService', function ($window) {
+  .service('syncService', function (cfg, $window, alertService, $http) {
     this.cache = ($window.localStorage.sync ? JSON.parse($window.localStorage.sync) : []);
 
     this.push = function(entry) {
@@ -19,18 +19,33 @@ angular.module('uadpApp')
         }
       }
       this.cache.push(entry);
-      entry.historicalImport = true;
-      entry.historicalActivityDate = new Date().toISOString();
+      // entry.historicalImport = true;
+      // entry.historicalActivityDate = new Date().toISOString();
       console.log(entry);
       $window.localStorage.sync = JSON.stringify(this.cache);
-    }
+    };
 
     this.getAll = function() {
       return this.cache;
-    }
+    };
 
-    this.putAll = function(data) {
-      this.cache = data;
-      $window.localStorage.sync = JSON.stringify(this.cache);
-    }
+    this.sync = function(record) {
+      $http
+        .post(cfg.apiUrl + "/classes/" + $window.localStorage.jurisdiction, record)
+        .success(function (data, status, headers, config) {
+          this.cache.pop(record);
+          alertService.message = {class: 'success', text: 'Data successfully submitted'};
+        }.bind(this))
+        .error(function (data, status, headers, config) {
+          if (status === -1) {
+            // Timed out
+            alertService.message = {class: 'warning', text: 'Notice: No internet, submission is pending'};
+          } else {
+            console.log(status);
+            // Bad data
+            alertService.message = {class: 'danger', text: 'Error: Invalid submission'};
+          }
+        });
+    };
+
   });

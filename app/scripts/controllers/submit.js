@@ -8,7 +8,7 @@
  * Controller of the uadpApp
  */
 angular.module('uadpApp')
-  .controller('SubmitCtrl', function (cfg, $scope, $http, $window, $state, alertService) {
+  .controller('SubmitCtrl', function (cfg, $scope, $http, $window, $state, alertService, syncService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -120,6 +120,8 @@ angular.module('uadpApp')
         .error(function (data, status, headers, config) {
           if (status === -1) {
             // Timed out
+            syncService.push($scope.form);
+            $scope.alert.message = {class: 'warning', text: 'Notice: No internet, submission is pending'};
           } else {
             console.log(status);
             // Bad data

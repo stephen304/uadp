@@ -1,1 +1,3 @@
-<p>This is the sync view.</p>
+<ul class="col-md-6 col-md-offset-3 list-group">
+  <li ng-repeat="record in records track by record.historicalActivityDate" class="list-group-item">Record Created at {{record.historicalActivityDate}} <button ng-click="sync(record)" type="button" class="btn btn-primary btn-xs pull-right">Synchronize</button></li>
+</ul>
