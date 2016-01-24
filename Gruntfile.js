@@ -220,7 +220,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {
@@ -423,6 +423,22 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    manifest: {
+      generate: {
+        options: {
+          basePath: './dist',
+          verbose: true,
+          timestamp: true,
+          hash: true,
+          master: ['index.html'],
+        },
+        src: [
+          '**/*.*'
+        ],
+        dest: 'dist/manifest.appcache'
+      }
     }
   });
 
@@ -471,7 +487,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'manifest'
   ]);
 
   grunt.registerTask('default', [
