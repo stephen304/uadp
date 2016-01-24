@@ -26,3 +26,14 @@ body {
     padding-right: 0;
   }
 }
+
+/* Change pointer to a hand on ng-click */
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+  cursor: pointer;
+}
+/* Define ng-cloak here to speed things up */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
