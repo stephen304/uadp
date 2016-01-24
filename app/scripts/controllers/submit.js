@@ -39,8 +39,8 @@ angular.module('uadpApp')
     ];
 
     $scope.recordOptions = [
-      {value: "true", name: "Yes"},
-      {value: "false", name: "No"}
+      {value: true, name: "Yes"},
+      {value: false, name: "No"}
     ];
 
     $scope.maritalOptions = [
