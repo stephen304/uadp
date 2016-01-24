@@ -15,6 +15,10 @@ angular.module('uadpApp')
       'Karma'
     ];
 
+    if($window.localStorage.jurisdiction === "US_IL_CookCounty") {
+      console.log("hi");
+    };
+
     $scope.alert = alertService;
     $scope.form = {};
 
@@ -56,10 +60,45 @@ angular.module('uadpApp')
       {value: "Graduate School", name: "Graduate School"}
     ];
 
+    $scope.employmentOptions = [
+      {value: "Unemployed", name: "Unemployed"},
+      {value: "Technology", name: "Technology"},
+      {value: "Retail", name: "Retail"},
+      {value: "Manufacturing", name: "Manufacturing"},
+      {value: "Government", name: "Government"},
+      {value: "Finance", name: "Finance"},
+      {value: "Non-Profit", name: "Non-Profit"},
+      {value: "Entertainment", name: "Entertainment"},
+      {value: "Travel", name: "Travel"}
+    ];
+
+    $scope.adPaymentOptions = [
+      {value: "Amex", name: "Amex"},
+      {value: "Mastercard", name: "Mastercard"},
+      {value: "Discover", name: "Discover"},
+      {value: "Visa", name: "Visa"},
+      {value: "Prepaid Amex", name: "Prepaid Amex"},
+      {value: "Prepaid Mastercard", name: "Prepaid Mastercard"},
+      {value: "Prepaid Discover", name: "Prepaid Discover"},
+      {value: "Entertainment", name: "Entertainment"},
+      {value: "Prepaid Visa", name: "Prepaid Visa"}
+    ];
+
+    $scope.websiteUsedOptions = [
+      {value: "Craigslist", name: "Craigslist"},
+      {value: "Backpage", name: "Backpage"},
+      {value: "Cityvibe", name: "Cityvibe"},
+      {value: "RealGFE", name: "RealGFE"},
+      {value: "Tinder", name: "Tinder"}
+    ];
+
+    $scope.uploadFile = function(files) {
+      $scope.form['offenderFacePhoto'] = {"__type": files[0], "name": files[0]["name"]};
+    };
 
     $scope.submit = function() {
         $scope.form["locationID"] = "41.7,87.7";
-        $scope.form["offenderFacePhoto"] = "";
+        // $scope.form["offenderFacePhoto"] = "";
         $scope.form["offenderIDPhoto"] = "";
         $scope.form["offenderVehiclePhoto"] = "";
     	console.log($scope.form);
