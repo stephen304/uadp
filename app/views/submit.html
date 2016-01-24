@@ -1,101 +1,73 @@
 <form class="form-submit" name="myForm" ng-submit="submit()">
 
-	<div class="form-group">
-		<label for="form.date">Date</label>
-		<input name="date" ng-model="form.date" disabled="disabled">
-	</div>
+	<!--<div class="form-group">
+		<label for="date">Date</label>
+		<input name="date" ng-model="form.createdAt" disabled="disabled">
+	</div>-->
 	
 	<div class="form-group">
 		<label for="venue">Venue Policed</label>
-		<select class="form-control" id="venue">
-			<option>Street Reversal</option>
-			<option>Hotel Operation</option>
-			<option>Brothel</option>
-			<option>Strip/Dance Club</option>
-			<option>Bar</option>
-			<option>Other</option>
+		<select name="venue" ng-model="form.venueType">
+			<option value="Street Reversal">Street Reversal</option>
+			<option value="Hotel Operation">Hotel Operation</option>
+			<option value="Brothel">Brothel</option>
+			<option value="Strip/Dance Club">Strip/Dance Club</option>
+			<option value="Bar">Bar</option>
+			<option value="Other">Other</option>
 		</select>
 	</div>
 
 	<div class="form-group">
 		<label for="age">Age group of offender</label>
-		<select class="form-control" id="venue">
-			<option>Under 18</option>
-			<option>18 to 30</option>
-			<option>31 to 40</option>
-			<option>41 to 50</option>
-			<option>51 to 60</option>
-			<option>Over 60</option>
+		<select name="age" ng-model="form.ageGroup" ng-options="ageOption.value as ageOption.name for ageOption in ageOptions">
 		</select>
 	</div>
 
 	<div class="form-group">
 		<label for="race">Race of offender</label>
-		<select class="form-control" id="race">
-			<option>Caucasian</option>
-			<option>Hispanic</option>
-			<option>African American</option>
-			<option>Asian</option>
-			<option>Other</option>
+		<select name="race" ng-model="form.raceGroup" ng-options="raceOption.value as raceOption.name for raceOption in raceOptions">
 		</select>
 	</div>
 
 	<div class="form-group">
 		<label for="record">Criminal record (other than solication)</label>
-		<select class="form-control" id="record">
-			<option>Yes</option>
-			<option>No</option>
+		<select name="record" ng-model="form.criminalRecord" ng-options="operator.value as operator.name for operator in recordOptions">
 		</select>
 	</div>
 
 	<div class="form-group">
 		<label for="repeat">Repeat offender (solicitation)</label>
-		<select class="form-control" id="record">
-			<option>Yes</option>
-			<option>No</option>
+		<select name="repeat" ng-model="form.repeatOffender" ng-options="operator.value as operator.name for operator in recordOptions">
 		</select>
 	</div>
 
 	<div class="form-group">
 		<label for="weapon">In possesion of a weapon</label>
-		<select class="form-control" id="weapon">
-			<option>Yes</option>
-			<option>No</option>
+		<select name="weapon" ng-model="form.inposWeapon" ng-options="operator.value as operator.name for operator in recordOptions">
 		</select>
 	</div>
 
 	<div class="form-group">
 		<label for="married">Marital Status</label>
-		<select class="form-control" id="married">
-			<option>Married</option>
-			<option>In a relationship</option>
-			<option>Divorced</option>
-			<option>Separated</option>
-			<option>Single</option>
+		<select name="married" ng-model="form.maritalStatus" ng-options="operator.value as operator.name for operator in maritalOptions">
 		</select>
 	</div>
 
 	<div class="form-group">
 		<label for="education">Highest Level of Education</label>
-		<select class="form-control" id="education">
-			<option>No HS Diploma or GED</option>
-			<option>HS diploma or GED</option>
-			<option>College degree</option>
-			<option>Graduate School</option>
+		<select name="education" ng-model="form.educationLevel" ng-options="operator.value as operator.name for operator in educationOptions">
 		</select>
 	</div>
 
 	<div class="form-group">
 		<label for="vehicle">Vehicle Towed/Impounded</label>
-		<select class="form-control" id="vehicle">
-			<option>Yes</option>
-			<option>No</option>
+		<select name= "vehicle" ng-model="form.vehicleTowedImpounded" ng-options="operator.value as operator.name for operator in recordOptions">
 		</select>
 	</div>
 
 	<div class="form-group">
-		<label for="fines">Fines (not incurred necessarily, but that apply to charges) Total $</label>
-		<input type="number" id="fines" min="0" step=".01">
+		<label for="fine">Fines (not incurred necessarily, but that apply to charges) Total $</label>
+		<input type="number" name="fine" min="0" step=".01" ng-model="form.fines">
 	</div>
 
 	<!--<div class="form-group">
@@ -105,12 +77,12 @@
 
 	<div class="form-group">
 		<label for="felony">Felony</label>
-		<input type="text" id="felony">
+		<input name="felony" ng-model="form.felonyChargeCount">
 	</div>
 
 	<div class="form-group">
 		<label for="misdemeanor">Misdemeanor</label>
-		<input type="text" id="misdemeanor">
+		<input name="misdemeanor" ng-model="form.missdemeanorChargeCount">
 	</div>
 	<button type="submit" class="btn btn-default pull-right btn-lg">Submit</button>
 </form>
