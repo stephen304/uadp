@@ -31,6 +31,11 @@ angular
         url: "/submit",
         templateUrl: "views/submit.html",
         controller: "SubmitCtrl"
+      })
+      .state('sync', {
+        url: "/sync",
+        templateUrl: "views/sync.html",
+        controller: "SyncCtrl"
       });
   })
   .constant('cfg', {
