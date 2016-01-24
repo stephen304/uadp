@@ -1,1 +1,28 @@
-<p>This is the records view.</p>
+<table class="table table-bordered table-striped">
+    <tr>
+    	<th>Arresting Officer</th>
+    	<th>Venue</th>
+        <th>Age</th>
+        <th>Criminal Record</th>
+        <th>Education Level</th>
+        <th>Felony Charges</th>
+        <th>Fines</th>
+        <th>Weapon Position</th>
+        <th>Location</th>
+        <th>Marital Status</th>
+        <th>Misdemeanors</th>
+    </tr>
+    <tr ng-repeat="row in myTable">
+    	<td>{{row.addedBy["objectId"]}}</td>
+    	<td>{{row.venueType}}</td>
+        <td>{{row.ageGroup}}</td>
+        <td>{{row.criminalRecord}}</td>
+        <td>{{row.educationLevel}}</td>
+        <td>{{row.felonyChargeCount}}</td>
+        <td>{{row.fines}}</td>
+        <td>{{row.inposWeapon}}</td>
+        <td>{{row.locationID}}</td>
+        <td>{{row.maritalStatus}}</td>
+        <td>{{row.misdemeanorChargeCount}}</td>
+    </tr>
+</table>

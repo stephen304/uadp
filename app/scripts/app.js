@@ -36,6 +36,11 @@ angular
         url: "/sync",
         templateUrl: "views/sync.html",
         controller: "SyncCtrl"
+      })
+      .state('records', {
+        url: "/records",
+        templateUrl: "views/records.html",
+        controller: "RecordsCtrl"
       });
   })
   .constant('cfg', {
